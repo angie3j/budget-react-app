@@ -1,0 +1,31 @@
+  
+.Nav {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    background: rgb(179, 173, 173);
+    /* create spacing around the 2 items*/
+    padding: 1em;
+    box-shadow: 2px 2px 4px grey;
+    margin-bottom: 1em;
+    display: flex;
+    /* create space in between 2 items */
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  .BudgetApp {
+    font-size: 48px;
+    color: rgb(78, 78, 78);
+  }
+  
+  .NewButton {
+    font-size: 18px;
+    color: rgb(67, 64, 64);
+    margin: 1em;
+  }
+
+  .EditButton {
+    font-size: 23px;
+    color: rgb(67, 64, 64);
+  }
+
