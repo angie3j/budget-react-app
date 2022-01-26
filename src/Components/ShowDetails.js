@@ -43,7 +43,7 @@ function ShowDetails() {
 
             <h3>Amount: {transaction.amount}</h3>
             
-            <div className='showNavigation'>
+            <div className='showNavigation'>   
 
                 <div>
                     <h1>
