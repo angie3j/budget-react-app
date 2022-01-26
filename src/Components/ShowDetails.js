@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
+// import Transaction from './Transaction';
+import React from 'react';
 
 function ShowDetails() {
     const URL = process.env.REACT_APP_API_URL;
-    const [transactions, setTransactions] = useState([]);
+    const [transaction, setTransactions] = useState([]);
     let { index } = useParams();
     const navigate = useNavigate();
 
@@ -16,52 +18,46 @@ function ShowDetails() {
         .then((response) => {
             console.log(response)
             setTransactions(response.data) 
-        // }).catch((error)=>{
-        //     navigate("*");
         })
     }, []);
 
-    
-
     const handleDelete = () => {
+        // make a delete request to /transactions/:index
         axios
         .delete(`${URL}/transactions/${index}`)
-        .then(()=> {
+        // redirect them to /transactions
+        .then((response)=> {
             navigate (`/transactions`)
         })
-        // .catch((error)=>{
-        //     console.log(error)
-        // })
     };
  
     return (
 
-        <div className='details'>
+        <div className='Details'>
             <div className='showDetails'>
-            <h6>Budget App</h6>
-            <h6>Show</h6>
-            <h6>Date: {transactions.date} </h6>
-            <h6>   
-                <span>
-                <a href={transactions.url}>{transactions.name}</a>
-                </span>{' '}
-                {transactions.url}
-            </h6>     
-            <p>Transaction Type: {transactions.name}</p>
-            <p>Amount: ${transactions.amount}</p>
+            <h4>Expenses</h4>
+
+            <h3>Date: {transaction.date} </h3>
+
+            <h3>Transaction Type: {transaction.name}</h3>
+
+            <h3>Amount: {transaction.amount}</h3>
             
             <div className='showNavigation'>
 
                 <div>
+                    <h1>
                     {" "}
                     <Link to={`/transactions`}>
                         <button>Back</button>
                     </Link>
+                    </h1>
                 </div>
-
                 <div>
+                    <div>
                     {" "}
                     <button onClick={handleDelete}>Delete</button>
+                    </div>
                 </div>
 
             </div>
@@ -69,6 +65,7 @@ function ShowDetails() {
         </div>
        
     );
+
 };
 
 export default ShowDetails;

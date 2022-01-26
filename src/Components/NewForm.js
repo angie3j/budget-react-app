@@ -10,8 +10,9 @@ function Form() {
     const [transactions, setTransactions] = useState({
         date: '',
         name: '',
-        amount: '',
-        from: ''
+        amount: 0,
+        from: '',
+        category: ''
     });
 
     const handleTextChange = (event) => {
@@ -47,7 +48,7 @@ function Form() {
                 required
             />
 
-                <label htmlFor='name'>Name</label>
+                <label htmlFor='name'>Transaction</label>
                 <input
                     id='name'
                     name='name'
@@ -77,6 +78,17 @@ function Form() {
                     type='text'
                     onChange={handleTextChange}
                     placeholder='from'
+                />
+
+                <label htmlFor='category'>Category</label>
+                <input 
+                    id='category'
+                    name='category'
+                    value={transactions.category}
+                    type='text'
+                    onChange={handleTextChange}
+                    placeholder='category'
+                    required
                 />
 
                 <button>CREATE NEW ITEM</button>

@@ -4,7 +4,7 @@ function Edit() {
     return (
         <div className="NewEdit">
 
-            <h2>Edit</h2>
+            {/* <h2>Edit</h2> */}
             <EditForm />
 
         </div>

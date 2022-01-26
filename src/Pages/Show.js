@@ -1,11 +1,13 @@
 import ShowDetails from "../Components/ShowDetails"; 
 
-function Show() {
+function Show(props) {
+    console.log(props)
     return (
         <div className="ShowDetails">
 
-            <h2>Bank Account Total:</h2>
+            <h2>Transaction Details:</h2>
             <ShowDetails />
+
 
         </div>
     );

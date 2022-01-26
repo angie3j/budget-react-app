@@ -7,13 +7,13 @@ export default function NavBar() {
             
             <h1>
                 <Link 
-                className='BudgetApp'
+                className='mt-3'
                 to='/transactions'>Budget App</Link>
             </h1>
 
             <button>
                 <a
-                className='NewButton' 
+                className='mt-3' 
                 href='/transactions/new'>NEW</a>
             </button>
             
