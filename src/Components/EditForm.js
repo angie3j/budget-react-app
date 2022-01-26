@@ -36,7 +36,7 @@ function EditForm() {
                 navigate("*")
             })
         })
-    }, [index, navigate])
+    }, [URL])
 
     const handleSubmit = (event) =>{
         event.preventDefault();
@@ -96,6 +96,7 @@ function EditForm() {
             <div id='button'>
                 <Link to={`/transactions/${index}`}>
                     <button>Back</button>
+                    
                 </Link>
             </div>
 
