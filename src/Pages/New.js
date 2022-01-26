@@ -4,7 +4,6 @@ function NewForm() {
     return (
         <div className='Form'>
 
-            <h1>Add a new item</h1>
             <Form />
 
         </div>

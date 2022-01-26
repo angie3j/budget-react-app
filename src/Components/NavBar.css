@@ -15,12 +15,12 @@
   
   .BudgetApp {
     font-size: 48px;
-    color: rgb(78, 78, 78);
+    /* color: rgb(78, 78, 78); */
   }
   
   .NewButton {
     font-size: 18px;
-    color: rgb(67, 64, 64);
+    /* color: rgb(67, 64, 64); */
     margin: 1em;
   }
 

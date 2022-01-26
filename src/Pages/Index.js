@@ -1,5 +1,4 @@
-import Transaction from "../Components/Transactions";
-
+// 
 function TransactionsPage() {
     return (
         <div className="Transactions">

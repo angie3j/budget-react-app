@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-// import Transaction from './Transaction';
 import React from 'react';
 
 function ShowDetails() {
@@ -35,14 +34,15 @@ function ShowDetails() {
 
         <div className='Details'>
             <div className='showDetails'>
-            <h4>Expenses</h4>
 
-            <h3>Date: {transaction.date} </h3>
+                <h3>Date: {transaction.date} </h3>
 
-            <h3>Transaction Type: {transaction.name}</h3>
+                <h3>Transaction Type: {transaction.name}</h3>
 
-            <h3>Amount: {transaction.amount}</h3>
-            
+                <h3>Amount: {transaction.amount}</h3>
+                
+                <h3>Category: {transaction.category}</h3>
+
             <div className='showNavigation'>   
 
                 <div>
@@ -65,7 +65,6 @@ function ShowDetails() {
         </div>
        
     );
-
 };
 
 export default ShowDetails;

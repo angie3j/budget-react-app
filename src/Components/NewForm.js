@@ -29,76 +29,83 @@ function Form() {
     return (
         <div className='New'>
            
-
             <form 
+            style={{color: "gray"}}
             className='newForm'
-            action='/action_page.php' 
-            onSubmit={handleSubmit}
-            >
-            <fieldset>
-                <legend>Add</legend>
-            <label htmlFor='date'>Date</label>
-            <input 
-                id='date'
-                name='date'
-                value={transactions.date}
-                type='text'
-                onChange={handleTextChange}
-                placeholder='date'
-                required
-            />
-
-                <label htmlFor='name'>Transaction</label>
-                <input
-                    id='name'
-                    name='name'
-                    value={transactions.name}
-                    type='text'
-                    onChange={handleTextChange}
-                    placeholder='name'
-                    required
-                />
-
-                <label htmlFor='amount'>Amount</label>
-                <input 
-                    id='amount'
-                    name='amount'
-                    value={transactions.amount}
-                    type='text'
-                    onChange={handleTextChange}
-                    placeholder='amount'
-                    required
-                />
-
-                <label htmlFor='from'>From</label>
-                <input 
-                    id='from'
-                    name='from'
-                    value={transactions.from}
-                    type='text'
-                    onChange={handleTextChange}
-                    placeholder='from'
-                />
-
-                <label htmlFor='category'>Category</label>
-                <input 
-                    id='category'
-                    name='category'
-                    value={transactions.category}
-                    type='text'
-                    onChange={handleTextChange}
-                    placeholder='category'
-                    required
-                />
-
-                <button>CREATE NEW ITEM</button>
+            onSubmit={handleSubmit}>
+            <br />
                 
-            </fieldset>
+                <fieldset style={{color: "gray"}}>
+                    
+                    <legend style={{color: "gray"}}>Create a New Item</legend>
+                    <br />
+
+                    <h3>
+                        <label htmlFor='date'>Date</label>
+                        <input 
+                            id='date'
+                            name='date'
+                            value={transactions.date}
+                            type='text'
+                            onChange={handleTextChange}
+                            placeholder='date'
+                            required
+                        />
+                    </h3>
+                    <br />
+
+                    <h3>
+                        <label htmlFor='from'>Category</label>
+                        <select id="category" name="category">
+                            <option value="category">category</option>
+                            <option value="food">Food</option>
+                            <option value="housing">Housing</option>
+                            <option value="insurance">Insurance</option>
+                            <option value="medical">Medical</option>
+                            <option value="personal">Personal</option>
+                            <option value="savings">Savings</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="utilities">Utilities</option>
+                        </select>
+                    </h3>
+                    <br />
+                    
+                    <h3>
+                        <label htmlFor='amount'>Amount</label>
+                        <input 
+                            id='amount'
+                            name='amount'
+                            value={transactions.amount}
+                            type='text'
+                            onChange={handleTextChange}
+                            placeholder='amount'
+                            required
+                        />
+                    </h3>
+                    <br />
+
+                    <h3>
+                        <label htmlFor='from'>From</label>
+                        <input 
+                            id='from'
+                            name='from'
+                            value={transactions.from}
+                            type='text'
+                            onChange={handleTextChange}
+                            placeholder='from'
+                        />
+                    </h3>
+                    <br />
+
+                    <h3>
+                        <button style={{color: "gray"}}>Create New Item</button>
+                    </h3>
+                    <br />
+
+                </fieldset>
             </form>
 
         </div>
-
-
     );
 };
 

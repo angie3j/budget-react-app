@@ -24,36 +24,13 @@ function Transactions() {
 
     return (
         <div className="container">
-            <div row mt-3>
-                <div className='col-sm'>
-                    <div className='alert alert-success'>
-                        <span>Account Total:</span>
-                    </div>
-                </div>
+            <div>
                 <p>
-                            <ul>
+                    <ul>
                        {transactionsFile}
-                       </ul>
-                       </p>
+                    </ul>
+                </p>
             </div>
-
-            {/* <section>
-                <table>
-                    <thead>
-                        <tr>
-                        <th></th>
-                        <th>Account Total: </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <p>
-                            <ul>
-                       {transactionsFile}
-                       </ul>
-                       </p>
-                    </tbody>
-                </table>
-            </section> */}
         </div>  
     );
 };

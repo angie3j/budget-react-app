@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 
 export default function NavBar() {
     return (
-        <nav className='Nav'>
+        <nav 
+        className='Nav'>
             
-            <h1>
+            <h1 style={{color: "dark-gray"}}>
                 <Link 
-                className='mt-3'
                 to='/transactions'>Budget App</Link>
             </h1>
 
-            <button>
+            <button >
                 <a
-                className='mt-3' 
+                style={{color: "dark-gray"}}
                 href='/transactions/new'>NEW</a>
             </button>
             

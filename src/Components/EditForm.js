@@ -12,31 +12,32 @@ function EditForm() {
         date: '',
         name: '',
         amount: '',
-        from: ''
+        from: '',
+        transaction: ''
     });
 
     // const handleInputChange = (e)=>{
     //     setlog({...log, [e.target.id]: e.target.value})
     // };
 
-    const handleTextChange = (event) => {
-        setTransactions({ ...transactions, [event.target.id]: event.target.value});
-    };
+    
 
     useEffect(() => {
         axios
         .get(`${URL}/transactions/${index}`)
-        .then((response) =>{
-            setTransactions({
-                date: response.data.date,
-                name: response.data.name,
-                amount: response.data.amount
+        .then((response) => {
+            setTransactions(
+                 response.data)
             })
             .catch((error)=>{
                 navigate("*")
             })
-        })
     }, [index, navigate, URL])
+
+
+    const handleTextChange = (event) => {
+        setTransactions({ ...transactions, [event.target.id]: event.target.value});
+    };
 
     const handleSubmit = (event) =>{
         event.preventDefault();
@@ -44,10 +45,18 @@ function EditForm() {
         .put(`${URL}/transactions/${index}`, transactions)
         .then((response) => {
             navigate (`${URL}/transactions/${index}`)
-        }).catch((error)=>{
-            navigate("*")
         })
+        // .catch((error)=>{
+        //     navigate("*")
+        // })
     };
+
+    const handleDelete = () => {
+        axios.delete(`${process.env.REACT_APP_API_URL}/transactions/${index}`)
+          .then(() => {
+            navigate("/transactions")
+          })
+      } 
 
     return (
         <div className='Edit'>
@@ -57,7 +66,7 @@ function EditForm() {
             action='/action_page.php'
             onSubmit={ handleSubmit }>
             <fieldset>
-                <legend>Add</legend>
+          
                 <label htmlFor='date'>Date:</label>
                 <input
                     id='date'
@@ -69,16 +78,16 @@ function EditForm() {
                     required   
                 />
 
-                <label htmlFor='name'>Name:</label>
+                <label htmlFor='transaction'>Transaction:</label>
                 <input 
-                    id='name'
-                    name='name'
+                    id='transaction'
+                    name='transaction'
                     value={ transactions.name }
                     onChange={ handleTextChange }
                     placeholder='' 
                 />
 
-                <label htmlFor='amount'>Amount</label>
+                <label htmlFor='amount'>Amount:</label>
                 <input 
                     id='amount'
                     type='number'
@@ -95,11 +104,15 @@ function EditForm() {
 
             <div id='button'>
                 <Link to={`/transactions/${index}`}>
-                    <button>Back</button>
-                    
+                    <button>Submit</button>
                 </Link>
             </div>
 
+            <div>
+                <Link to={`/transactions/${index}`}>
+                    <button onClick={handleDelete}>Delete</button>
+                </Link>
+            </div>
         </div>
     );
 };
