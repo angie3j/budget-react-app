@@ -66,7 +66,7 @@ function EditForm() {
                     type='text'
                     onChange={ handleTextChange }
                     placeholder='date'
-                    required
+                    required   
                 />
 
                 <label htmlFor='name'>Name:</label>
