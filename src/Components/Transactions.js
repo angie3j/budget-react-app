@@ -1,7 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Transaction from './Transaction';
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 function Transactions() {
     const URL = process.env.REACT_APP_API_URL;

@@ -19,7 +19,7 @@ function ShowDetails() {
             console.log(response)
             setTransactions(response.data) 
         })
-    }, []);
+    }, [URL, index]);
 
     const handleDelete = () => {
         // make a delete request to /transactions/:index
