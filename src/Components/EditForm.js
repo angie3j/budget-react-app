@@ -36,7 +36,7 @@ function EditForm() {
                 navigate("*")
             })
         })
-    }, [index, navigate])
+    }, [index, navigate, URL])
 
     const handleSubmit = (event) =>{
         event.preventDefault();
