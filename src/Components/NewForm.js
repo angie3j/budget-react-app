@@ -22,7 +22,7 @@ function Form() {
     const handleSubmit = (event) => {
         event.preventDefault();
         axios
-        .post(`${URL}/transactions`, transactions)
+        .post(`${URL}/transactions/`, transactions)
         .then(()=> navigate (`/transactions`))
     };
 

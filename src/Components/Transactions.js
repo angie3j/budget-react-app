@@ -25,13 +25,13 @@ function Transactions() {
     return (
         
         <div className="container">
-            <div>
+            
                 <p>
                     <ul>
                        {transactionsFile}
                     </ul>
                 </p>
-            </div>
+            
         </div>  
     );
 };

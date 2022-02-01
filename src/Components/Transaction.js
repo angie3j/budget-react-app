@@ -5,23 +5,15 @@ function Transaction({ transaction, index }) {
     
     <tr>
       <td>
-        {transaction.isFavorite ? (
-          <span>⭐️</span>
-        ) : (
-          <span>&nbsp; &nbsp; &nbsp;</span>
-        )}
-      </td>
-      <td>
-        <a href={transaction.url} target="_blank" rel="noreferrer">
-          {transaction.name}
-        </a>
+        {transaction.date}
       </td>
       <td>
         <Link to={`/transactions/${index}`}>✏️</Link>
       </td>
+      
     </tr>
     
   );
-}
+};
 
 export default Transaction;
