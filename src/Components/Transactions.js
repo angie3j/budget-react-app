@@ -11,7 +11,7 @@ function Transactions() {
         .then((response) =>{
             setTransactions(response.data)
         })
-    }, [])
+    }, [URL])
 
     const transactionsFile = transactions.map((transaction, index) => {
         return <td key={ index } index={ index } className='Transactions'>
