@@ -21,9 +21,9 @@ function App() {
 
           <Routes>
             <Route path='/' element={ <Home /> } />
-            <Route path='/transactions/' element={ <Transaction />} />
+            <Route path='/transactions' element={ <Transaction />} />
             <Route path='/transactions/new' element={ <Form />} />
-            <Route path='/transactions/:index' element={ <Show />} />
+            <Route exact path='/transactions/:index' element={ <Show />} />
             <Route path='/transactions/:index/edit' element={ <Edit />} />
           </Routes>
 

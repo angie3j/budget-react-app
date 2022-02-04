@@ -9,10 +9,9 @@ function Form() {
 
     const [transactions, setTransactions] = useState({
         date: '',
-        name: '',
+        source: '',
         amount: 0,
         from: '',
-        category: ''
     });
 
     const handleTextChange = (event) => {
@@ -20,6 +19,7 @@ function Form() {
     };
 
     const handleSubmit = (event) => {
+        console.log(transactions)
         event.preventDefault();
         axios
         .post(`${URL}/transactions/`, transactions)
@@ -55,9 +55,14 @@ function Form() {
                     <br />
 
                     <h3>
-                        <label htmlFor='from'>Category</label>
-                        <select id="category" name="category">
-                            <option value="category">category</option>
+                        <label htmlFor='from'>Source</label>
+                        <select 
+                            id="source" 
+                            name="source"
+                            onChange={handleTextChange}
+
+                        >
+                            <option value="source">source</option>
                             <option value="food">Food</option>
                             <option value="housing">Housing</option>
                             <option value="insurance">Insurance</option>

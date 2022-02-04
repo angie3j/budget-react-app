@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+// import Transaction from './Transaction';
 
 function Transactions() {
+
     const URL = process.env.REACT_APP_API_URL;
     const [transactions, setTransactions] = useState([]);
 
@@ -11,26 +13,28 @@ function Transactions() {
         .then((response) =>{
             setTransactions(response.data)
         })
+        .catch((error) => console.warn('catch'))
+
     }, [URL])
 
-    const transactionsFile = transactions.map((transaction, index) => {
-        return <td key={ index } index={ index } className='Transactions'>
+    const transactionsFile = transactions.map((transaction, id) => {
+        return <div key={ id } id={ id } className='Transactions'>
             
             <p>{transaction.date}</p>
-            <a href={`/transactions/${index}`}>{transaction.name}</a>
+            <a href={`/transactions/${id}`}>{transaction.source}</a>
             <p>${transaction.amount}</p>
-        </td>
+        </div>
     })
 
     return (
         
         <div className="container">
             
-                <p>
-                    <ul>
+          
+        
                        {transactionsFile}
-                    </ul>
-                </p>
+            
+            
             
         </div>  
     );
