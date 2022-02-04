@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 // import Transaction from './Transaction';
+console.log("hello!!")
 
 function Transactions() {
 
