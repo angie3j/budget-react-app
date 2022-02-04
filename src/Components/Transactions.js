@@ -40,7 +40,7 @@ function Transactions() {
             
           
         
-                       {transactionsFile[0].source}
+                       {transactions[0].source}
             
             
             
