@@ -5,11 +5,7 @@ import { useEffect, useState } from 'react';
 function Transactions() {
 
     const URL = process.env.REACT_APP_API_URL;
-    const [transactions, setTransactions] = useState([{
-        date: "April 1",
-        source: "Income",
-        amount: 1000,
-      }]);
+    const [transactions, setTransactions] = useState([]);
 
     useEffect(() => {
         console.log("hello!!")
@@ -25,14 +21,14 @@ function Transactions() {
 
     }, [URL])
 
-    // const transactionsFile = transactions.map((transaction, id) => {
-    //     return <div key={ id } id={ id } className='Transactions'>
+    const transactionsFile = transactions.map((transaction, id) => {
+        return (<div key={ id } id={ id } className='Transactions'>
             
-    //         <p>{transaction.date}</p>
-    //         <a href={`/transactions/${id}`}>{transaction.source}</a>
-    //         <p>${transaction.amount}</p>
-    //     </div>
-    // })
+            <p>{transaction.date}</p>
+            <a href={`/transactions/${id}`}>{transaction.source}</a>
+            <p>${transaction.amount}</p>
+        </div>)
+    })
 
     return (
         
@@ -40,7 +36,7 @@ function Transactions() {
             
           
         
-                       {transactions[0].source}
+                       {transactionsFile}
             
             
             
