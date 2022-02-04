@@ -1,31 +1,38 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 // import Transaction from './Transaction';
-console.log("hello!!")
 
 function Transactions() {
 
     const URL = process.env.REACT_APP_API_URL;
-    const [transactions, setTransactions] = useState([]);
+    const [transactions, setTransactions] = useState([{
+        date: "April 1",
+        source: "Income",
+        amount: 1000,
+      }]);
 
     useEffect(() => {
+        console.log("hello!!")
+
         axios
         .get(`${URL}/transactions`)
         .then((response) =>{
             setTransactions(response.data)
+
         })
+
         .catch((error) => console.warn('catch'))
 
     }, [URL])
 
-    const transactionsFile = transactions.map((transaction, id) => {
-        return <div key={ id } id={ id } className='Transactions'>
+    // const transactionsFile = transactions.map((transaction, id) => {
+    //     return <div key={ id } id={ id } className='Transactions'>
             
-            <p>{transaction.date}</p>
-            <a href={`/transactions/${id}`}>{transaction.source}</a>
-            <p>${transaction.amount}</p>
-        </div>
-    })
+    //         <p>{transaction.date}</p>
+    //         <a href={`/transactions/${id}`}>{transaction.source}</a>
+    //         <p>${transaction.amount}</p>
+    //     </div>
+    // })
 
     return (
         
@@ -33,7 +40,7 @@ function Transactions() {
             
           
         
-                       {transactionsFile}
+                       {transactionsFile[0].source}
             
             
             
