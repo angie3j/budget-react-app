@@ -6,7 +6,7 @@ import React from 'react';
 
 function ShowDetails() {
     const URL = process.env.REACT_APP_API_URL;
-    const [transaction, setTransactions] = useState([]);
+    const [transaction, setTransactions] = useState({});
     // console.log(transactions)
     const navigate = useNavigate();
     // useParams returns an object that we can deconstruct from.
@@ -89,7 +89,7 @@ function ShowDetails() {
 
                 <h3>Amount: {transaction.amount}</h3>
                 
-                <h3>Category: {transaction.category}</h3>
+                {/* <h3>Category: {transaction.category}</h3> */}
 
             <div className='showNavigation'>   
 

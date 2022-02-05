@@ -10,10 +10,9 @@ function EditForm() {
 
     const [transactions, setTransactions] = useState({
         date: '',
-        name: '',
+        source: '',
         amount: '',
         from: '',
-        transaction: ''
     });
 
     // const handleInputChange = (e)=>{

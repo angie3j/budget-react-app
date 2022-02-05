@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-function Transaction({ transaction, index }) {
-  console.log(transaction);
+function Transaction({ transaction, id }) {
+  // console.log(transaction);
   return (
     <tr>
       <td>
@@ -13,7 +13,7 @@ function Transaction({ transaction, index }) {
       </td>
       <td></td>
       <td>
-        <Link to={`/transactions/${index}`}>{transaction.item_name}</Link>
+        <Link to={`/transactions/${id}`}>{transaction.source}</Link>
       </td>
       <td>
         {transaction.amount ? (
