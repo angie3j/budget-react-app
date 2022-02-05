@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
+
 // import Transaction from './Transaction';
 
 function Transactions() {
@@ -8,24 +10,42 @@ function Transactions() {
     const [transactions, setTransactions] = useState([]);
 
     useEffect(() => {
-        console.log("hello!!")
-
         axios
         .get(`${URL}/transactions`)
         .then((response) =>{
             setTransactions(response.data)
         })
-
         .catch((error) => console.warn('catch'))
-
     }, [URL])
 
     const transactionsFile = transactions.map((transaction, id) => {
         return (<div key={ id } id={ id } className='Transactions'> 
-        
-            <p>{transaction.date}</p>
-            <a href={`/transactions/${id}`}>{transaction.source}</a>
-            <p>${transaction.amount}</p>
+                <section>
+                    <table>
+                            <tr>
+                                {/* <th></th> */}
+                                <td>
+                                    { transactions.date ? (
+                                    <span>{ transactions.date }</span>
+                                    ) : (
+                                    <span>&nbsp; &nbsp; &nbsp;</span>
+                                    )}
+                                </td>
+                                <td></td>
+                                <td>
+                                    <Link to={`/transactions/${id}`}>{ transactions.source }</Link>
+                                </td>
+                                <td></td>
+                                <td>
+                                    {transactions.amount ? (
+                                        <span>{ transactions.amount }</span>
+                                    ) : (
+                                    <span>&nbsp; &nbsp; &nbsp;</span>
+                                    )}
+                                </td>
+                            </tr>
+                    </table>
+                </section>
              </div>)
     })
     
