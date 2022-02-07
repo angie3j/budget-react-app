@@ -13,7 +13,10 @@ function Transaction({ transaction, id }) {
       </td>
       <td></td>
       <td>
-        <Link to={`/transactions/${id}`}>{transaction.source}</Link>
+        <Link 
+        to={`/transactions/${id}`}>{transaction.source}</Link>
+        <span>&nbsp; &nbsp; &nbsp; &nbsp;</span>
+
       </td>
       <td>
         {transaction.amount ? (
@@ -29,22 +32,3 @@ function Transaction({ transaction, id }) {
 export default Transaction;
 
 
-// import { Link } from "react-router-dom";
-
-// function Transaction({ transaction, id}) {
-//   return (
-    
-//     <tr>
-//       <td>
-//         {transaction.date}
-//       </td>
-//       <td>
-//         <Link to={`/transactions/${id}`}>HELLO</Link>
-//       </td>
-      
-//     </tr>
-    
-//   );
-// };
-
-// export default Transaction;

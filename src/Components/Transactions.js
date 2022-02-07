@@ -23,6 +23,8 @@ function Transactions() {
             <Transaction 
                 transaction={transaction}
                 id={id}
+                key={id}
+                setTransactions={setTransactions}
             />
            )}
     )
@@ -30,17 +32,26 @@ function Transactions() {
     return (
         
         <div className="container">
+            <section>
+                <br />
+                <br />
+            <fieldset>
+                <br />
+                <legend>TRANSACTIONS</legend>
             <table>
                 <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Source</th>
-                        <th>Amount</th>
+                    <tr> 
+                        <th>DATE</th>
+                        <th>SOURCE</th>
+                        <th>AMOUNT</th>
                     </tr>
-                </thead>
+               </thead>
                 <tbody>{ transactionsFile }</tbody>
+            
             </table>
             {/* <h1>Budget Total: {"$" + amount.toFixed(2)}</h1> */}           
+            </fieldset>
+            </section>
         </div> 
     );
 };

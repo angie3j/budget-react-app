@@ -11,7 +11,6 @@ function Form() {
         date: '',
         source: '',
         amount: 0,
-        from: '',
     });
 
     const handleTextChange = (event) => {
@@ -28,16 +27,15 @@ function Form() {
 
     return (
         <div className='New'>
-           
+           <br />
+           <br />
             <form 
             style={{color: "gray"}}
             className='newForm'
             onSubmit={handleSubmit}>
             <br />
-                
-                <fieldset style={{color: "gray"}}>
-                    
-                    <legend style={{color: "gray"}}>Create a New Item</legend>
+                <fieldset>
+                    <legend>Create a New Item</legend>
                     <br />
 
                     <h3>
@@ -59,10 +57,8 @@ function Form() {
                         <select 
                             id="source" 
                             name="source"
-                            onChange={handleTextChange}
-
-                        >
-                            <option value="source">source</option>
+                            onChange={handleTextChange}>
+                            <option value="click">click</option>
                             <option value="food">Food</option>
                             <option value="housing">Housing</option>
                             <option value="insurance">Insurance</option>
@@ -81,7 +77,7 @@ function Form() {
                             id='amount'
                             name='amount'
                             value={transactions.amount}
-                            type='text'
+                            type='number'
                             onChange={handleTextChange}
                             placeholder='amount'
                             required
@@ -90,20 +86,7 @@ function Form() {
                     <br />
 
                     <h3>
-                        <label htmlFor='from'>From</label>
-                        <input 
-                            id='from'
-                            name='from'
-                            value={transactions.from}
-                            type='text'
-                            onChange={handleTextChange}
-                            placeholder='from'
-                        />
-                    </h3>
-                    <br />
-
-                    <h3>
-                        <button style={{color: "gray"}}>Create New Item</button>
+                        <input type="submit"/>
                     </h3>
                     <br />
 

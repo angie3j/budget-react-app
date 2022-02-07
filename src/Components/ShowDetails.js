@@ -28,7 +28,7 @@ function ShowDetails() {
             // console.log(response.date)
             setTransactions((response.data)) 
         .catch ((error) => console.warn(error))
-    }, [URL, index])
+    }, [URL, index]);
 })
     //  console.log(transactions)
     
@@ -68,12 +68,6 @@ function ShowDetails() {
         //         </div>
 
         //         <div>
-        //             <Link to='/transactions/:id/edit'>
-        //                 <button>Edit</button>
-        //             </Link>
-        //         </div>
-
-        //         <div>
         //             <button onClick={handleDelete}>Delete</button>
         //         </div>
 
@@ -81,35 +75,50 @@ function ShowDetails() {
         // </article>
 
         <div className='Details'>
+            <fieldset>
+                <legend>TRANSACTION DETAILS</legend>
             <div className='showDetails'>
 
-                <h3>Date: {transaction.date} </h3>
+                <h5>Date: {transaction.date} </h5>
 
-                <h3>Transaction Type: {transaction.source}</h3>
+                <h4>Transaction Type: {transaction.source}</h4>
 
-                <h3>Amount: {transaction.amount}</h3>
+                <h5>Amount: {transaction.amount}</h5>
                 
-                {/* <h3>Category: {transaction.category}</h3> */}
-
             <div className='showNavigation'>   
 
+
                 <div>
-                    <h1>
                     {" "}
                     <Link to={`/transactions`}>
-                        <button>Back</button>
+                        <button type="button" class="button">Back</button>
                     </Link>
-                    </h1>
+                </div>
+
+                <div>
+                    <div>
+                    {" "}
+                        <button 
+                        type="button"
+                        class="button"
+                        onClick={handleDelete}>Delete</button>
+                    </div>
                 </div>
                 <div>
                     <div>
                     {" "}
-                    <button onClick={handleDelete}>Delete</button>
+                    <Link to={`/transactions/${index}/edit`}>
+                        <button type="button" class="button">Edit</button>
+                    </Link>
+                    
                     </div>
                 </div>
 
+
+
             </div>
             </div>
+            </fieldset>
         </div>
     )
     }

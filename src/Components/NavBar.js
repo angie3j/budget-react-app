@@ -6,14 +6,13 @@ export default function NavBar() {
         <nav 
         className='Nav'>
             
-            <h1 style={{color: "dark-gray"}}>
-                <Link 
+            <h1>
+                <Link
                 to='/transactions'>Budget App</Link>
             </h1>
 
             <button >
                 <a
-                style={{color: "dark-gray"}}
                 href='/transactions/new'>NEW</a>
             </button>
             

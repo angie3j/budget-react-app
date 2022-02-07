@@ -25,11 +25,11 @@ function App() {
             <Route path='/transactions/new' element={ <Form />} />
             <Route exact path='/transactions/:index' element={ <Show />} />
             <Route path='/transactions/:index/edit' element={ <Edit />} />
+            {/* <Route path="*" element={<FourOFour />} /> */}
           </Routes>
 
         </main>
       </Router>
-     
     </div>
   );
 };

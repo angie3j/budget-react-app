@@ -6,7 +6,6 @@ function Show() {
     return (
         <div className="ShowDetails">
 
-            <h2>Transaction Details:</h2>
             <ShowDetails />
       
         </div>

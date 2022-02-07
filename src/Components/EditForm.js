@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 
 function EditForm() {
@@ -8,19 +8,12 @@ function EditForm() {
     let { index } = useParams();
     const navigate = useNavigate();
 
-    const [transactions, setTransactions] = useState({
+    const [transaction, setTransactions] = useState({
         date: '',
         source: '',
-        amount: '',
-        from: '',
+        amount: 0,
     });
-
-    // const handleInputChange = (e)=>{
-    //     setlog({...log, [e.target.id]: e.target.value})
-    // };
-
     
-
     useEffect(() => {
         axios
         .get(`${URL}/transactions/${index}`)
@@ -30,89 +23,93 @@ function EditForm() {
             })
             .catch((error)=>{
                 navigate("*")
-            })
-    }, [index, navigate, URL])
+            });
+    }, [URL, index, navigate])
 
 
     const handleTextChange = (event) => {
-        setTransactions({ ...transactions, [event.target.id]: event.target.value});
+        setTransactions({ ...transaction, [event.target.id]: event.target.value});
     };
 
     const handleSubmit = (event) =>{
         event.preventDefault();
         axios
-        .put(`${URL}/transactions/${index}`, transactions)
-        .then((response) => {
-            navigate (`${URL}/transactions/${index}`)
-        })
+            .put(`${URL}/transactions/${index}`, transaction)
+        // .then((response) => {
+            // navigate (`${URL}/transactions/${index}`)
+            .then(() => {
+            navigate (`/transactions/${index}`)
         // .catch((error)=>{
         //     navigate("*")
         // })
+            });
     };
-
-    const handleDelete = () => {
-        axios.delete(`${process.env.REACT_APP_API_URL}/transactions/${index}`)
-          .then(() => {
-            navigate("/transactions")
-          })
-      } 
 
     return (
         <div className='Edit'>
-            <h2>Edit</h2>
-
             <form 
+            style={{color: "gray"}}
             action='/action_page.php'
             onSubmit={ handleSubmit }>
-            <fieldset>
-          
+                <br />
+                <br />
+            <fieldset style={{color:"dark gray"}}>
+                <legend>EDIT TRANSACTION</legend>
+                <br />
+                <h3>
                 <label htmlFor='date'>Date:</label>
                 <input
                     id='date'
                     name='date'
-                    value={ transactions.date }
+                    value={ transaction.date }
                     type='text'
                     onChange={ handleTextChange }
                     placeholder='date'
                     required   
                 />
-
-                <label htmlFor='transaction'>Transaction:</label>
-                <input 
-                    id='transaction'
-                    name='transaction'
-                    value={ transactions.name }
-                    onChange={ handleTextChange }
-                    placeholder='' 
-                />
-
+                </h3>
+                <br />
+                <br />
+                <h3>
+                        <label htmlFor='from'>Source</label>
+                        <select 
+                            id="source" 
+                            name="source"
+                            onChange={handleTextChange}>
+                            <option value="source">source</option>
+                            <option value="food">Food</option>
+                            <option value="housing">Housing</option>
+                            <option value="insurance">Insurance</option>
+                            <option value="medical">Medical</option>
+                            <option value="personal">Personal</option>
+                            <option value="savings">Savings</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="utilities">Utilities</option>
+                        </select>
+                    </h3>
+                    <br />
+                    <br />
+                <h3>
                 <label htmlFor='amount'>Amount:</label>
                 <input 
                     id='amount'
                     type='number'
                     name='amount'
-                    value={ transactions.amount }
+                    value={ transaction.amount }
                     placeholder='amount'
                     onChange={ handleTextChange }
                 />
-
-                <input type='submit' /> 
-
+                </h3>
+                <br />
+                <br />
+                <input 
+                type='submit' /> 
+                <br />
+                <br />
             </fieldset>
             </form>
-
-            <div id='button'>
-                <Link to={`/transactions/${index}`}>
-                    <button>Submit</button>
-                </Link>
-            </div>
-
-            <div>
-                <Link to={`/transactions/${index}`}>
-                    <button onClick={handleDelete}>Delete</button>
-                </Link>
-            </div>
         </div>
+        
     );
 };
 
